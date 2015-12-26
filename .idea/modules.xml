@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///cryptfs/git/Tasker2/Tasker2.iml" filepath="/cryptfs/git/Tasker2/Tasker2.iml" />
-      <module fileurl="file:///cryptfs/git/Tasker2/app/app.iml" filepath="/cryptfs/git/Tasker2/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tasker2.iml" filepath="$PROJECT_DIR$/Tasker2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>

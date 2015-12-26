@@ -3,4 +3,10 @@
     <color name="ColorPrimary">#00897B</color>
     <color name="ColorPrimaryDark">#00695c</color>
     <color name="tabsScrollColor">#004D40</color>
+    <color name="priority_low">#4fc3f7</color>
+    <color name="priority_low_selected">#b3e5fc</color>
+    <color name="priority_normal">#81c784</color>
+    <color name="priority_normal_selected">#c8e6c9</color>
+    <color name="priority_high">#e57373</color>
+    <color name="priority_high_selected">#ffcdd2</color>
 </resources>
