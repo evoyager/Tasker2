@@ -1,21 +1,19 @@
 package com.gusar.tasker2;
 
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.gusar.tasker2.dialog.AddingTaskDialogFragment;
 import com.gusar.tasker2.dialog.AddingTaskDialogFragment.AddingTaskListener;
-import com.gusar.tasker2.dialog.EditTaskDialogFragment;
 import com.gusar.tasker2.dialog.EditTaskDialogFragment.EditingTaskListener;
+import com.gusar.tasker2.dialog.NewTaskDialogFragment;
 import com.gusar.tasker2.fragment.TaskFragment;
 import com.gusar.tasker2.model.ModelTask;
 
@@ -30,11 +28,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     FragmentManager fragmentManager;
     TaskFragment currentTaskFragment;
 
+    DialogFragment dlg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.fragmentManager = getFragmentManager();
+
+        dlg = new NewTaskDialogFragment();
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -76,12 +78,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-//        Toast toast = Toast.makeText(getApplicationContext(),
-//                "Оля, я тебя люблю! :)",
-//                Toast.LENGTH_SHORT);
-//        toast.setGravity(Gravity.CENTER, 0, 0);
-//        toast.show();
-        new AddingTaskDialogFragment().show(MainActivity.this.fragmentManager, "AddingTaskDialogFragment");
+//        new AddingTaskDialogFragment().show(MainActivity.this.fragmentManager, "AddingTaskDialogFragment");
+        dlg.show(getFragmentManager(), "New Task Dialog");
     }
 
     @Override

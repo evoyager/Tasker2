@@ -9,4 +9,6 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_error_empty_title">Please, enter the title</string>
     <string name="dialog_editing_title">Editing task</string>
+    <string name="newtask_cancel">Cancel</string>
+    <string name="newtask_ok">Ok</string>
 </resources>
