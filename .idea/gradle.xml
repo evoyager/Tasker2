@@ -9,14 +9,14 @@
         <option name="gradleJvm" value="1.7" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="/cryptfs/git/Tasker2" />
+            <option value="/cryptfs/git/Tasker2/app" />
           </set>
         </option>
         <option name="myModules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="/cryptfs/git/Tasker2" />
+            <option value="/cryptfs/git/Tasker2/app" />
           </set>
         </option>
       </GradleProjectSettings>

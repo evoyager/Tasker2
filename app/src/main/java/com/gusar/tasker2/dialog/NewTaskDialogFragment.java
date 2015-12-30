@@ -5,7 +5,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Dialog;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
+import android.widget.EditText;
 
 import com.gusar.tasker2.R;
 
@@ -20,8 +22,21 @@ public class NewTaskDialogFragment extends DialogFragment implements DialogInter
                 .setTitle("New task").setPositiveButton(R.string.newtask_ok, this)
                 .setNegativeButton(R.string.newtask_cancel, this);
         View container = getActivity().getLayoutInflater().inflate(R.layout.new_task, null);
+        TextInputLayout tilTitle = (TextInputLayout) container.findViewById(R.id.tilNewTaskTitle);
+        TextInputLayout tilDate = (TextInputLayout) container.findViewById(R.id.tilNewTaskDate);
+        TextInputLayout tilTime = (TextInputLayout) container.findViewById(R.id.tilNewTaskTime);
+        EditText etTitle = (EditText) tilTitle.getEditText();
+        EditText etDate = (EditText) tilDate.getEditText();
+        EditText etTime = (EditText) tilTime.getEditText();
+        tilTitle.setHint("Title");
+        tilDate.setHint("Date");
+        tilTime.setHint("Time");
+        etTitle.setError("Enter task title");
+
         adb.setView(container);
-        return adb.create();
+        AlertDialog alertDialog = adb.create();
+
+        return alertDialog;
     }
 
     @Override
