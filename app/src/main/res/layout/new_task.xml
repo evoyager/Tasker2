@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilNewTaskTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/etTitle" />
-    </android.support.design.widget.TextInputLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilNewTaskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <EditText
+                android:id="@+id/etTitle"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:id="@+id/tilNewTaskDate"
             android:layout_width="130dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_below="@+id/tilNewTaskTitle">
+
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/etDate"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
                 android:ems="10"
-                android:id="@+id/etDate" />
+                android:inputType="date" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilNewTaskTime"
             android:layout_width="130dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_below="@+id/tilNewTaskTitle"
+            android:layout_alignRight="@+id/tilNewTaskTitle">
+
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/etTime"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="time"
-                android:ems="10"
-                android:id="@+id/etTime" />
+                android:inputType="time" />
         </android.support.design.widget.TextInputLayout>
 
 
-    </LinearLayout>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_below="@+id/tilNewTaskDate"/>
+    </RelativeLayout>
+</ScrollView>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner" />
-
-</LinearLayout>

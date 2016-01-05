@@ -9,4 +9,5 @@
     <color name="priority_normal_selected">#c8e6c9</color>
     <color name="priority_high">#e57373</color>
     <color name="priority_high_selected">#ffcdd2</color>
+    <color name="red_500_primary">#f44336</color>
 </resources>
