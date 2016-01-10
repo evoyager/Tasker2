@@ -11,4 +11,7 @@
     <string name="dialog_editing_title">Editing task</string>
     <string name="newtask_cancel">Cancel</string>
     <string name="newtask_ok">Ok</string>
+    <string name="dialog_removing_message">Delete task?</string>
+    <string name="dialog_remove">Remove</string>
+    <string name="removed">Removed</string>
 </resources>

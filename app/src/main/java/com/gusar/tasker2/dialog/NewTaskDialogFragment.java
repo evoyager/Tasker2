@@ -1,5 +1,6 @@
 package com.gusar.tasker2.dialog;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
@@ -28,6 +29,23 @@ import java.util.Calendar;
  * Created by igusar on 12/28/15.
  */
 public class NewTaskDialogFragment extends DialogFragment implements DialogInterface.OnClickListener {
+
+    private NewTaskListener newTaskListener;
+
+    public interface NewTaskListener {
+        void onTaskAdded(ModelTask modelTask);
+
+        void onTaskAddingCancel();
+    }
+
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            this.newTaskListener = (NewTaskListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement EditingTaskListener");
+        }
+    }
 
     int DIALOG_DATE = 1;
 
@@ -113,6 +131,29 @@ public class NewTaskDialogFragment extends DialogFragment implements DialogInter
         });
 
         adb.setView(container);
+
+        adb.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                task.setTitle(etTitle.getText().toString());
+                task.setStatus(1);
+                if(!(etDate.length() == 0 && etTime.length() == 0)) {
+                    task.setDate(calendar.getTimeInMillis());
+
+                }
+                task.setStatus(1);
+                NewTaskDialogFragment.this.newTaskListener.onTaskAdded(task);
+                dialog.dismiss();
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                NewTaskDialogFragment.this.newTaskListener.onTaskAddingCancel();
+                dialog.cancel();
+            }
+        });
 
         AlertDialog alertDialog = adb.create();
         final TextInputLayout textInputLayout = tilTitle;
