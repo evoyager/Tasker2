@@ -37,6 +37,8 @@
                 android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
                 android:ems="10"
                 android:inputType="date" />
         </android.support.design.widget.TextInputLayout>
@@ -54,6 +56,8 @@
                 android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
                 android:inputType="time" />
         </android.support.design.widget.TextInputLayout>
 

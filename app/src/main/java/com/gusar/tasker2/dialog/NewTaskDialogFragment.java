@@ -13,16 +13,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 
 import com.gusar.tasker2.R;
+import com.gusar.tasker2.Utils;
 import com.gusar.tasker2.model.ModelTask;
+
+import java.util.Calendar;
 
 /**
  * Created by igusar on 12/28/15.
  */
 public class NewTaskDialogFragment extends DialogFragment implements DialogInterface.OnClickListener {
+
+    int DIALOG_DATE = 1;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -34,11 +41,59 @@ public class NewTaskDialogFragment extends DialogFragment implements DialogInter
         TextInputLayout tilDate = (TextInputLayout) container.findViewById(R.id.tilNewTaskDate);
         TextInputLayout tilTime = (TextInputLayout) container.findViewById(R.id.tilNewTaskTime);
         final EditText etTitle = (EditText) tilTitle.getEditText();
-        EditText etDate = (EditText) tilDate.getEditText();
-        EditText etTime = (EditText) tilTime.getEditText();
+        final EditText etDate = (EditText) tilDate.getEditText();
+        final EditText etTime = (EditText) tilTime.getEditText();
         tilTitle.setHint("Title");
         tilDate.setHint("Date");
         tilTime.setHint("Time");
+
+        final Calendar calendar = Calendar.getInstance();
+
+        View.OnClickListener oclEtDate = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (etDate.length() == 0)
+                    etDate.setText(" ");
+
+                new DatePickerFragment() {
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, monthOfYear);
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        etDate.setText(Utils.getDate(calendar.getTimeInMillis()));
+                    }
+
+                    public void onCancel(DialogInterface dialog) {
+                        etDate.setText(null);
+                    }
+                }.show(NewTaskDialogFragment.this.getFragmentManager(), "DatePickerFragment");
+            }
+        };
+
+        etDate.setOnClickListener(oclEtDate);
+
+        View.OnClickListener oclEtTime = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (etTime.length() == 0)
+                    etTime.setText(" ");
+
+                new TimePickerFragment() {
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calendar.set(Calendar.MINUTE, minute);
+                        etTime.setText(Utils.getTime(calendar.getTimeInMillis()));
+                    }
+
+                    public void onCancel(DialogInterface dialog) {
+                        etDate.setText(null);
+                    }
+                }.show(NewTaskDialogFragment.this.getFragmentManager(), "TimePickerFragment");
+            }
+        };
+
+        etTime.setOnClickListener(oclEtTime);
 
         final ModelTask task = new ModelTask();
 
@@ -69,7 +124,7 @@ public class NewTaskDialogFragment extends DialogFragment implements DialogInter
                     okButton.setEnabled(false);
                     textInputLayout.setErrorEnabled(true);
                     textInputLayout.setError("Please, enter the title");
-                    etTitle.getBackground().setColorFilter(getResources().getColor(R.color.ColorPrimary), PorterDuff.Mode.SRC_ATOP);
+//                    etTitle.getBackground().setColorFilter(getResources().getColor(R.color.ColorPrimary), PorterDuff.Mode.SRC_ATOP);
                 }
                 etTitle.addTextChangedListener(new TextWatcher() {
                     @Override
