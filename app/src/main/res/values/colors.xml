@@ -10,4 +10,6 @@
     <color name="priority_high">#e57373</color>
     <color name="priority_high_selected">#ffcdd2</color>
     <color name="red_500_primary">#f44336</color>
+    <color name="gray_200">#eeeeee</color>
+    <color name="gray_50">#fafafa</color>
 </resources>

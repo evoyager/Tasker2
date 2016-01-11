@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Evgeniy on 26.12.2015.
  */
-public class ModelTask {
+public class ModelTask implements Item {
     public static final int PRIORITY_HIGH = 2;
     public static final String[] PRIORITY_LEVELS = new String[]{"Low Priority", "Normal Priority", "High Priority"};
     public static final int PRIORITY_LOW = 0;
@@ -19,6 +19,7 @@ public class ModelTask {
     private String title;
     private int status;
     private long date;
+    private int dateStatus;
     private long timeStamp;
 
     public ModelTask() {
@@ -72,6 +73,10 @@ public class ModelTask {
         this.date = date;
     }
 
+    public void setDateStatus(int dateStatus) {
+        this.dateStatus = dateStatus;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -90,5 +95,14 @@ public class ModelTask {
 
     public int getStatus() {
         return status;
+    }
+
+    public int getDateStatus() {
+        return dateStatus;
+    }
+
+    @Override
+    public boolean isTask() {
+        return true;
     }
 }

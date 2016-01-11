@@ -7,14 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import info.fandroid.reminder.R;
-import info.fandroid.reminder.adapter.DoneTasksAdapter;
-import info.fandroid.reminder.database.DBHelper;
-import info.fandroid.reminder.model.ModelTask;
+import com.gusar.tasker2.R;
+import com.gusar.tasker2.adapter.DoneTasksAdapter;
+import com.gusar.tasker2.database.DBHelper;
+import com.gusar.tasker2.model.ModelTask;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoneTaskFragment extends TaskFragment {
+public class DoneTaskFragment extends OldTaskFragment {
     OnTaskRestoreListener onTaskRestoreListener;
 
     public interface OnTaskRestoreListener {
@@ -83,7 +83,7 @@ public class DoneTaskFragment extends TaskFragment {
 
     public void moveTask(ModelTask task) {
         if (task.getDate() != 0) {
-            this.alarmHelper.setAlarm(task);
+//            this.alarmHelper.setAlarm(task);
         }
         this.onTaskRestoreListener.onTaskRestore(task);
     }

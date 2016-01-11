@@ -77,25 +77,25 @@ public class CurrentTaskFragment extends OldTaskFragment {
         if (newTask.getDate() != 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(newTask.getDate());
-            if (calendar.get(6) < Calendar.getInstance().get(6) && calendar.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()) {
+            if (calendar.get(Calendar.DAY_OF_MONTH) < Calendar.getInstance().get(Calendar.DAY_OF_MONTH) && calendar.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()) {
                 newTask.setDateStatus(ModelSeparator.TYPE_OVERDUE);
                 if (!this.adapter.containsSeparatorOverdue) {
                     this.adapter.containsSeparatorOverdue = true;
                     separator = new ModelSeparator(ModelSeparator.TYPE_OVERDUE);
                 }
-            } else if (calendar.get(6) == Calendar.getInstance().get(6) && calendar.get(1) == Calendar.getInstance().get(1)) {
+            } else if (calendar.get(Calendar.DAY_OF_MONTH) == Calendar.getInstance().get(Calendar.DAY_OF_MONTH) && calendar.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH)) {
                 newTask.setDateStatus(ModelSeparator.TYPE_TODAY);
                 if (!this.adapter.containsSeparatorToday) {
                     this.adapter.containsSeparatorToday = true;
                     separator = new ModelSeparator(ModelSeparator.TYPE_TODAY);
                 }
-            } else if (calendar.get(6) == Calendar.getInstance().get(6) + 1 && calendar.get(1) == Calendar.getInstance().get(1)) {
+            } else if (calendar.get(Calendar.DAY_OF_MONTH) == Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1 && calendar.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH)) {
                 newTask.setDateStatus(ModelSeparator.TYPE_TOMORROW);
                 if (!this.adapter.containsSeparatorTomorrow) {
                     this.adapter.containsSeparatorTomorrow = true;
                     separator = new ModelSeparator(ModelSeparator.TYPE_TOMORROW);
                 }
-            } else if (calendar.get(6) > Calendar.getInstance().get(6) + 1 || calendar.getTimeInMillis() > Calendar.getInstance().getTimeInMillis()) {
+            } else if (calendar.get(Calendar.DAY_OF_MONTH) > Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1 || calendar.getTimeInMillis() > Calendar.getInstance().getTimeInMillis()) {
                 newTask.setDateStatus(ModelSeparator.TYPE_FUTURE);
                 if (!this.adapter.containsSeparatorFuture) {
                     this.adapter.containsSeparatorFuture = true;
@@ -129,7 +129,7 @@ public class CurrentTaskFragment extends OldTaskFragment {
     }
 
     public void moveTask(ModelTask task) {
-        this.alarmHelper.removeAlarm(task.getTimeStamp());
+//        this.alarmHelper.removeAlarm(task.getTimeStamp());
         this.onTaskDoneListener.onTaskDone(task);
     }
 

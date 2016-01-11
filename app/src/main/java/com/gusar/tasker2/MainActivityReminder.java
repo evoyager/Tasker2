@@ -43,7 +43,7 @@ public class MainActivityReminder extends AppCompatActivity implements AddingTas
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_old);
 //        Ads.showBottomBanner(this);
 //        PreferenceHelper.getInstance().init(getApplicationContext());
 //        this.preferenceHelper = PreferenceHelper.getInstance();
@@ -150,9 +150,9 @@ public class MainActivityReminder extends AppCompatActivity implements AddingTas
         this.doneTaskFragment.addTask(task, false);
     }
 
-    public void onTaskRestore(ModelTask task) {
-        this.currentTaskFragment.addTask(task, false);
-    }
+//    public void onTaskRestore(ModelTask task) {
+//        this.currentTaskFragment.addTask(task, false);
+//    }
 
     public void onBackPressed() {
         if (this.searchView.isIconified()) {
@@ -168,4 +168,8 @@ public class MainActivityReminder extends AppCompatActivity implements AddingTas
     }
 
 
+    @Override
+    public void onTaskRestore(ModelTask modelTask) {
+
+    }
 }
