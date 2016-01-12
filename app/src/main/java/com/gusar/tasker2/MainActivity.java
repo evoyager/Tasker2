@@ -51,9 +51,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         dlg = new NewTaskDialogFragment();
 
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
-
         setUI();
 
 //        adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs);
@@ -76,6 +73,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void setUI() {
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.my_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.current_task));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.done_task));
