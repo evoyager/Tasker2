@@ -150,9 +150,9 @@ public class MainActivityReminder extends AppCompatActivity implements AddingTas
         this.doneTaskFragment.addTask(task, false);
     }
 
-//    public void onTaskRestore(ModelTask task) {
-//        this.currentTaskFragment.addTask(task, false);
-//    }
+    public void onTaskRestore(ModelTask task) {
+        this.currentTaskFragment.addTask(task, false);
+    }
 
     public void onBackPressed() {
         if (this.searchView.isIconified()) {
@@ -165,11 +165,5 @@ public class MainActivityReminder extends AppCompatActivity implements AddingTas
     public void onTaskEdited(ModelTask newTask) {
         this.currentTaskFragment.updateTask(newTask);
         this.dbHelper.update().task(newTask);
-    }
-
-
-    @Override
-    public void onTaskRestore(ModelTask modelTask) {
-
     }
 }

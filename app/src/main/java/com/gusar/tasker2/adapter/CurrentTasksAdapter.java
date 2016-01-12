@@ -57,7 +57,7 @@ public class CurrentTasksAdapter extends TaskAdapter {
             } else {
                 taskViewHolder.date.setText(null);
             }
-            itemView.setVisibility(0);
+            itemView.setVisibility(View.VISIBLE);
             taskViewHolder.priority.setEnabled(true);
             if (task.getDate() == 0 || task.getDate() >= Calendar.getInstance().getTimeInMillis()) {
                 itemView.setBackgroundColor(resources.getColor(R.color.gray_50));

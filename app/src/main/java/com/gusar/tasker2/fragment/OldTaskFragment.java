@@ -1,7 +1,7 @@
 package com.gusar.tasker2.fragment;
 
 import android.app.AlertDialog.Builder;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import com.gusar.tasker2.model.Item;
 import com.gusar.tasker2.model.ModelTask;
 
 public abstract class OldTaskFragment extends Fragment {
-    public MainActivityReminder activity;
+    public MainActivity activity;
     protected TaskAdapter adapter;
 //    protected AlarmHelper alarmHelper;
     protected LayoutManager layoutManager;
@@ -39,7 +39,7 @@ public abstract class OldTaskFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (getActivity() != null) {
-            this.activity = (MainActivityReminder) getActivity();
+            this.activity = (MainActivity) getActivity();
         }
 //        this.alarmHelper = AlarmHelper.getInstance();
         addTaskFromDB();
