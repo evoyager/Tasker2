@@ -36,26 +36,26 @@ public class ModelTask implements Item {
     }
 
     public int getPriorityColor() {
-//        switch (getPriority()) {
-//            case PRIORITY_LOW /*0*/:
-//                if (getStatus() == STATUS_CURRENT || getStatus() == 0) {
-//                    return R.color.priority_low;
-//                }
-//                return R.color.priority_low_selected;
-//            case STATUS_CURRENT /*1*/:
-//                if (getStatus() == STATUS_CURRENT || getStatus() == 0) {
-//                    return R.color.priority_normal;
-//                }
-//                return R.color.priority_normal_selected;
-//            case STATUS_DONE /*2*/:
-//                if (getStatus() == STATUS_CURRENT || getStatus() == 0) {
-//                    return R.color.priority_high;
-//                }
-//                return R.color.priority_high_selected;
-//            default:
-//                return PRIORITY_LOW;
-//        }
-        return R.color.priority_normal;
+        switch (getPriority()) {
+            case PRIORITY_LOW /*0*/:
+                if (getStatus() == STATUS_CURRENT || getStatus() == 0) {
+                    return R.color.priority_low;
+                }
+                return R.color.priority_low_selected;
+            case STATUS_CURRENT /*1*/:
+                if (getStatus() == STATUS_CURRENT || getStatus() == 0) {
+                    return R.color.priority_normal;
+                }
+                return R.color.priority_normal_selected;
+            case STATUS_DONE /*2*/:
+                if (getStatus() == STATUS_CURRENT || getStatus() == 0) {
+                    return R.color.priority_high;
+                }
+                return R.color.priority_high_selected;
+            default:
+                return PRIORITY_LOW;
+        }
+//        return R.color.priority_normal;
     }
 
     public void setPriority(int priority) {

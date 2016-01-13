@@ -5,6 +5,7 @@ import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ public class DoneTasksAdapter extends TaskAdapter {
             taskViewHolder.title.setTextColor(resources.getColor(R.color.primary_text_disabled_material_light));
             taskViewHolder.date.setTextColor(resources.getColor(R.color.secondary_text_disabled_material_light));
             taskViewHolder.priority.setColorFilter(resources.getColor(task.getPriorityColor()));
+//            taskViewHolder.priority.setColorFilter(Color.RED);
             taskViewHolder.priority.setImageResource(R.drawable.ic_check_circle_white_24dp);
             itemView.setOnLongClickListener(new OnLongClickListener() {
                 public boolean onLongClick(View v) {
@@ -68,6 +70,7 @@ public class DoneTasksAdapter extends TaskAdapter {
                     taskViewHolder.title.setTextColor(resources.getColor(R.color.primary_text_default_material_light));
                     taskViewHolder.date.setTextColor(resources.getColor(R.color.secondary_text_default_material_light));
                     taskViewHolder.priority.setColorFilter(resources.getColor(task.getPriorityColor()));
+//                    taskViewHolder.priority.setColorFilter(Color.BLUE);
                     ObjectAnimator flipIn = ObjectAnimator.ofFloat(taskViewHolder.priority, "rotationY", new float[]{180.0f, 0.0f});
                     taskViewHolder.priority.setImageResource(R.drawable.ic_checkbox_blank_circle_white_24dp);
                     flipIn.addListener(new AnimatorListener() {
@@ -83,7 +86,7 @@ public class DoneTasksAdapter extends TaskAdapter {
                                     }
 
                                     public void onAnimationEnd(Animator animation) {
-                                        itemView.setVisibility(View.INVISIBLE);
+                                        itemView.setVisibility(View.VISIBLE);
                                         DoneTasksAdapter.this.getTaskFragment().moveTask(task);
                                         DoneTasksAdapter.this.removeItem(taskViewHolder.getLayoutPosition());
                                     }
