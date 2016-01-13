@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_old);
 
         this.dbHelper = new DBHelper(getApplicationContext());
         this.fragmentManager = getSupportFragmentManager();
@@ -68,15 +68,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 //
 //        tabs.setViewPager(viewPager);
 
-        FloatingActionButton fb = (FloatingActionButton)findViewById(R.id.my_fab);
+        FloatingActionButton fb = (FloatingActionButton)findViewById(R.id.fab);
         fb.setOnClickListener(this);
     }
 
     private void setUI() {
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.my_tab_layout);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.current_task));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.done_task));
         viewPager = (ViewPager) findViewById(R.id.pager);
