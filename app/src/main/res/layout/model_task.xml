@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-    android:background="#ffeeeeee"
     android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="horizontal">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/cvTaskPriority"
+    android:orientation="vertical">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@drawable/ic_checkbox_blank_circle_white_24dp" />
-    <TextView android:textSize="16sp"
-        android:textColor="@color/primary_text_default_material_light"
-        android:id="@+id/tvTaskTitle"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <TextView android:textSize="14sp"
-        android:textColor="@color/secondary_text_default_material_light"
-        android:id="@+id/tvTaskDate"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:padding="@dimen/base_padding"
+        android:background="@color/gray_50">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cvTaskPriority"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="16dp"
+            android:src="@color/colorPrimary"
+             />
+        <TextView android:textSize="16sp"
+            android:textColor="@color/primary_text_default_material_light"
+            android:id="@+id/tvTaskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="16dp"
+            android:layout_toRightOf="@+id/cvTaskPriority"
+            />
+        <TextView android:textSize="14sp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:id="@+id/tvTaskDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/tvTaskTitle"/>
+
+    </RelativeLayout>
+
 </LinearLayout>

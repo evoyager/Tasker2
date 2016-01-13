@@ -58,7 +58,7 @@ public class CurrentTasksAdapter extends TaskAdapter {
             } else {
                 taskViewHolder.date.setText(null);
             }
-            itemView.setVisibility(View.VISIBLE);
+//            itemView.setVisibility(View.VISIBLE);
             taskViewHolder.priority.setEnabled(true);
             if (task.getDate() == 0 || task.getDate() >= Calendar.getInstance().getTimeInMillis()) {
                 itemView.setBackgroundColor(resources.getColor(R.color.gray_50));
@@ -68,8 +68,7 @@ public class CurrentTasksAdapter extends TaskAdapter {
             taskViewHolder.title.setTextColor(resources.getColor(R.color.primary_text_default_material_light));
             taskViewHolder.date.setTextColor(resources.getColor(R.color.secondary_text_default_material_light));
             taskViewHolder.priority.setColorFilter(resources.getColor(task.getPriorityColor()));
-//            taskViewHolder.priority.setColorFilter(Color.BLUE);
-            taskViewHolder.priority.setImageResource(R.drawable.ic_checkbox_blank_circle_white_24dp);
+            taskViewHolder.priority.setImageResource(R.drawable.ic_checkbox_blank_circle_white_48dp);
             itemView.setOnLongClickListener(new OnLongClickListener() {
                 public boolean onLongClick(View v) {
                     new Handler().postDelayed(new Runnable() {
@@ -93,7 +92,6 @@ public class CurrentTasksAdapter extends TaskAdapter {
                     taskViewHolder.title.setTextColor(resources.getColor(R.color.primary_text_disabled_material_light));
                     taskViewHolder.date.setTextColor(resources.getColor(R.color.secondary_text_disabled_material_light));
                     taskViewHolder.priority.setColorFilter(resources.getColor(task.getPriorityColor()));
-//                    taskViewHolder.priority.setColorFilter(Color.RED);
                     ObjectAnimator flipIn = ObjectAnimator.ofFloat(taskViewHolder.priority, "rotationY", new float[]{-180.0f, 0.0f});
                     flipIn.addListener(new AnimatorListener() {
                         public void onAnimationStart(Animator animation) {
@@ -101,7 +99,7 @@ public class CurrentTasksAdapter extends TaskAdapter {
 
                         public void onAnimationEnd(Animator animation) {
                             if (task.getStatus() == 2) {
-                                taskViewHolder.priority.setImageResource(R.drawable.ic_check_circle_white_24dp);
+                                taskViewHolder.priority.setImageResource(R.drawable.ic_check_circle_white_48dp);
                                 ObjectAnimator translationX = ObjectAnimator.ofFloat(itemView, "translationX", new float[]{0.0f, (float) itemView.getWidth()});
                                 ObjectAnimator translationXBack = ObjectAnimator.ofFloat(itemView, "translationX", new float[]{(float) itemView.getWidth(), 0.0f});
                                 translationX.addListener(new AnimatorListener() {
@@ -109,7 +107,7 @@ public class CurrentTasksAdapter extends TaskAdapter {
                                     }
 
                                     public void onAnimationEnd(Animator animation) {
-                                        itemView.setVisibility(View.VISIBLE);
+//                                        itemView.setVisibility(View.VISIBLE);
                                         CurrentTasksAdapter.this.getTaskFragment().moveTask(task);
                                         CurrentTasksAdapter.this.removeItem(taskViewHolder.getLayoutPosition());
                                     }

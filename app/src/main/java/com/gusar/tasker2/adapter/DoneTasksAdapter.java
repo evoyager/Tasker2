@@ -45,13 +45,12 @@ public class DoneTasksAdapter extends TaskAdapter {
             } else {
                 taskViewHolder.date.setText(null);
             }
-            itemView.setVisibility(View.VISIBLE);
+//            itemView.setVisibility(View.VISIBLE);
             taskViewHolder.priority.setEnabled(true);
             taskViewHolder.title.setTextColor(resources.getColor(R.color.primary_text_disabled_material_light));
             taskViewHolder.date.setTextColor(resources.getColor(R.color.secondary_text_disabled_material_light));
             taskViewHolder.priority.setColorFilter(resources.getColor(task.getPriorityColor()));
-//            taskViewHolder.priority.setColorFilter(Color.RED);
-            taskViewHolder.priority.setImageResource(R.drawable.ic_check_circle_white_24dp);
+            taskViewHolder.priority.setImageResource(R.drawable.ic_check_circle_white_48dp);
             itemView.setOnLongClickListener(new OnLongClickListener() {
                 public boolean onLongClick(View v) {
                     new Handler().postDelayed(new Runnable() {
@@ -70,9 +69,8 @@ public class DoneTasksAdapter extends TaskAdapter {
                     taskViewHolder.title.setTextColor(resources.getColor(R.color.primary_text_default_material_light));
                     taskViewHolder.date.setTextColor(resources.getColor(R.color.secondary_text_default_material_light));
                     taskViewHolder.priority.setColorFilter(resources.getColor(task.getPriorityColor()));
-//                    taskViewHolder.priority.setColorFilter(Color.BLUE);
                     ObjectAnimator flipIn = ObjectAnimator.ofFloat(taskViewHolder.priority, "rotationY", new float[]{180.0f, 0.0f});
-                    taskViewHolder.priority.setImageResource(R.drawable.ic_checkbox_blank_circle_white_24dp);
+                    taskViewHolder.priority.setImageResource(R.drawable.ic_checkbox_blank_circle_white_48dp);
                     flipIn.addListener(new AnimatorListener() {
                         public void onAnimationStart(Animator animation) {
                         }
@@ -86,7 +84,7 @@ public class DoneTasksAdapter extends TaskAdapter {
                                     }
 
                                     public void onAnimationEnd(Animator animation) {
-                                        itemView.setVisibility(View.VISIBLE);
+//                                        itemView.setVisibility(View.VISIBLE);
                                         DoneTasksAdapter.this.getTaskFragment().moveTask(task);
                                         DoneTasksAdapter.this.removeItem(taskViewHolder.getLayoutPosition());
                                     }
